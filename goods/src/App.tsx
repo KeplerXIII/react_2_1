@@ -13,7 +13,7 @@ function App() {
   }
   
   return (
-    <div>
+    <div className='main'>
       <div className='buttons'>
         <button onClick = {() => clickHandler('All')}>All</button>
         <button onClick = {() => clickHandler('Websites')}>Websites</button>
