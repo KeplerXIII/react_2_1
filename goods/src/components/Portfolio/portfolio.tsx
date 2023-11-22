@@ -24,6 +24,6 @@ const portfolio = new Portfolio(['All', 'Websites', 'Flayers', 'Business Cards']
 export function Toolbar ({ filter }: { filter: string }) {
 
     return (
-        <div>{portfolio.onSelectFilter(filter).map((obj, index) => <img key={index} src={obj.img} alt="какая то картинка" />)}</div>
+        <div>{portfolio.onSelectFilter(filter).map((obj, index) => <img key={index} src={obj.img} className='img' alt="какая то картинка" />)}</div>
     )
 }

@@ -14,12 +14,15 @@ function App() {
   
   return (
     <div>
-      <button onClick = {() => clickHandler('All')}>All</button>
-      <button onClick = {() => clickHandler('Websites')}>Websites</button>
-      <button onClick = {() => clickHandler('Flayers')}>Flayers</button>
-      <button onClick = {() => clickHandler('Business Cards')}>Business Cards</button>
-
-      <Toolbar filter={state}/>
+      <div className='buttons'>
+        <button onClick = {() => clickHandler('All')}>All</button>
+        <button onClick = {() => clickHandler('Websites')}>Websites</button>
+        <button onClick = {() => clickHandler('Flayers')}>Flayers</button>
+        <button onClick = {() => clickHandler('Business Cards')}>Business Cards</button>
+      </div>
+      <div>
+        <Toolbar filter={state}/>
+      </div>
     </div>
   )
 }
