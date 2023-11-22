@@ -13,6 +13,7 @@ class Portfolio {
     }
 
     onSelectFilter (filter: string):Project[] {
+        this.selected = filter
         if (filter==='All' || filter==='') return this.projectList
         return this.projectList.filter((project) => project.category === filter)
     }
