@@ -1,30 +1,14 @@
-import { Project, projectList } from './db/portfolio'
-
-class Portfolio {
-
-    filters: string[]
-    selected: string
-    projectList: Project[]
-
-    constructor (filters: string[], selected: string, projectList: Project[]) {
-        this.filters = filters
-        this.selected = selected
-        this.projectList = projectList
-    }
-
-    onSelectFilter (filter: string):Project[] {
-        this.selected = filter
-        if (filter==='All' || filter==='') return this.projectList
-        return this.projectList.filter((project) => project.category === filter)
-    }
-
-}
-
-const portfolio = new Portfolio(['All', 'Websites', 'Flayers', 'Business Cards'], 'All', projectList)
+import { projectList } from './db/portfolio'
 
 export function Toolbar ({ filter }: { filter: string }) {
 
+    let portfolio = projectList
+    const ignoreFilters = ['All', '']
+    if (!ignoreFilters.includes(filter)) {
+        portfolio = projectList.filter(p => p.category === filter)
+    }
+
     return (
-        <div>{portfolio.onSelectFilter(filter).map((obj, index) => <img key={index} src={obj.img} className='img' alt="какая то картинка" />)}</div>
+        <div>{portfolio.map((obj, index) => <img key={index} src={obj.img} className='img' alt="какая то картинка" />)}</div>
     )
 }

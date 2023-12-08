@@ -4,21 +4,16 @@ import './App.css'
 
 
 
-function App() {
+const App = () => {
   const [state, setState] = useState('All')
-  
-  function clickHandler (filter: string) {
-    setState(filter)
-    Toolbar({filter: filter})
-  }
-  
+
   return (
     <div className='main'>
       <div className='buttons'>
-        <button onClick = {() => clickHandler('All')}>All</button>
-        <button onClick = {() => clickHandler('Websites')}>Websites</button>
-        <button onClick = {() => clickHandler('Flayers')}>Flayers</button>
-        <button onClick = {() => clickHandler('Business Cards')}>Business Cards</button>
+        <button onClick = {() => setState('All')}>All</button>
+        <button onClick = {() => setState('Websites')}>Websites</button>
+        <button onClick = {() => setState('Flayers')}>Flayers</button>
+        <button onClick = {() => setState('Business Cards')}>Business Cards</button>
       </div>
       <div>
         <Toolbar filter={state}/>
